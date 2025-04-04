@@ -1,0 +1,80 @@
+.influencer-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .influencer-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-account-btn,
+  .submit-btn,
+  .remove-btn {
+    padding: 8px 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-account-btn:hover,
+  .submit-btn:hover,
+  .remove-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .accounts-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .accounts-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .remove-btn {
+    background-color: #dc3545;
+  }
+  
+  .remove-btn:hover {
+    background-color: #a71d2a;
+  }

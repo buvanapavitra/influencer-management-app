@@ -1,0 +1,65 @@
+.influencer-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .influencer-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .influencers {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .influencer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .influencer-details h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .social-accounts {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+  
+  .social-accounts li {
+    margin-bottom: 3px;
+  }
+  
+  .delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #a71d2a;
+  }
