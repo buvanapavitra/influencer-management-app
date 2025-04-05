@@ -4,10 +4,10 @@ This is a full-stack web application built for the Adcash home assignment. It al
 
 ## Features
 
-- Add new influencers with basic details
-- View a list of existing influencers
-- Simple and clean UI using React and TypeScript
-- Node.js backend with basic REST API support
+- Add new influencers with basic details.
+- View a list of existing influencers.
+- Simple and clean UI using React and TypeScript.
+- Node.js backend with API support.
 
 ## Tech Stack
 
@@ -32,7 +32,17 @@ This is a full-stack web application built for the Adcash home assignment. It al
 ## Screenshots
 Application runs on: http://localhost:3000
 
-![image](https://github.com/user-attachments/assets/31f88ca1-784b-41fe-a928-242eeaf56077)
+Influencer Form
+
+![image](https://github.com/user-attachments/assets/2c00cd8b-1084-4744-963a-18fea0525ca3)
+
+Influencer List and Filter
+
+![image](https://github.com/user-attachments/assets/e7a28cb4-b749-40fa-9c16-7d5853f040ee)
+
+
+
+
 
 
 
