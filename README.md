@@ -22,12 +22,12 @@ This is a full-stack web application built for the Adcash home assignment. It al
 
 ## Run the application
   ### Start backend:
-  cd server
-  node index.js
+  >cd server
+  >node index.js
 
   ### Start frontend:
-  cd client
-  npm start
+  >cd client
+  >npm start
 
 ## Screenshots
 Application runs on: http://localhost:3000
