@@ -34,7 +34,8 @@ Application runs on: http://localhost:3000
 
 Influencer Form
 
-![image](https://github.com/user-attachments/assets/2c00cd8b-1084-4744-963a-18fea0525ca3)
+![image](https://github.com/user-attachments/assets/1a19cbe5-7155-48d2-bc56-65e9823cfd1d)
+
 
 Influencer List and Filter
 
