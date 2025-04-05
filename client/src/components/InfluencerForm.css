@@ -1,80 +1,111 @@
 .influencer-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.influencer-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: black; 
+}
+
+.save-btn-container {
+  text-align: center; 
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 60;
+  padding: 10px;
   
-  .influencer-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-account-btn,
-  .submit-btn,
-  .remove-btn {
-    padding: 8px 12px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .add-account-btn:hover,
-  .submit-btn:hover,
-  .remove-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-  }
-  
-  .accounts-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .accounts-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-    background-color: #f1f1f1;
-    border-radius: 4px;
-  }
-  
-  .remove-btn {
-    background-color: #dc3545;
-  }
-  
-  .remove-btn:hover {
-    background-color: #a71d2a;
-  }
+}
+
+.form-group label {
+  display:inline-flex;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+ 
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.add-account-btn,
+.submit-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-account-btn:hover,
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); 
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.accounts-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.accounts-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accounts-list li:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.remove-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #a71d2a;
+  transform: scale(1.1); 
+}

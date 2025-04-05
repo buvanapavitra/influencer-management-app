@@ -1,9 +1,16 @@
 import axios from "axios";
-import { Influencer } from "../types";
+
 const BASE_URL = "http://localhost:5000/api";
-export const createInfluencer = (data: Influencer) =>
-  axios.post(`${BASE_URL}/influencers`, data);
-export const getInfluencers = (name?: string) =>
-  axios.get(`${BASE_URL}/influencers`, {
-    params: { name },
-  });
+
+export const getInfluencers = (name?: string) => {
+  const url = name ? `${BASE_URL}/influencers?name=${encodeURIComponent(name)}` : `${BASE_URL}/influencers`;
+  return axios.get(url);
+};
+
+export const createInfluencer = (data: any) => {
+  return axios.post(`${BASE_URL}/influencers`, data);
+};
+
+export const deleteInfluencer = (id: string) => {
+  return axios.delete(`${BASE_URL}/influencers/${id}`);
+};

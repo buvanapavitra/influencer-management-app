@@ -3,6 +3,7 @@ export type SocialMediaAccount = {
     username: string;
   };
   export type Influencer = {
+    id: string;
     firstName: string;
     lastName: string;
     socialAccounts: SocialMediaAccount[];

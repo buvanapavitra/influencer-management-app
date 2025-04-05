@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { SocialMediaAccount, Influencer } from "../types";
 import { createInfluencer } from "../services/api";
-import "./InfluencerForm.css"; // Add a CSS file for styling
+import "./InfluencerForm.css";
 
-const InfluencerForm = () => {
+interface Props {
+  onSave: () => Promise<void>;
+}
+
+
+
+const InfluencerForm = ({ onSave }: Props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [accounts, setAccounts] = useState<SocialMediaAccount[]>([]);
@@ -16,7 +22,7 @@ const InfluencerForm = () => {
       setError("Username cannot be empty");
       return;
     }
-    if (accounts.some(a => a.platform === platform)) {
+    if (accounts.some((a) => a.platform === platform)) {
       setError("Cannot add duplicate platform account");
       return;
     }
@@ -34,13 +40,25 @@ const InfluencerForm = () => {
       setError("Please add at least one social media account");
       return;
     }
-    const newInfluencer: Influencer = { firstName, lastName, socialAccounts: accounts };
-    await createInfluencer(newInfluencer);
-    alert("Influencer added");
-    setFirstName("");
-    setLastName("");
-    setAccounts([]);
-    setError(null);
+
+    const newInfluencer: Influencer = {
+      id: Date.now().toString(),
+      firstName,
+      lastName,
+      socialAccounts: accounts,
+    };
+
+    try {
+      await createInfluencer(newInfluencer);
+      alert("Influencer added");
+      await onSave(); 
+      setFirstName("");
+      setLastName("");
+      setAccounts([]);
+      setError(null);
+    } catch (err) {
+      setError("Failed to add influencer. Please try again.");
+    }
   };
 
   const removeAccount = (index: number) => {
@@ -48,7 +66,9 @@ const InfluencerForm = () => {
   };
 
   return (
+    
     <div className="influencer-form">
+      
       <h2>Add Influencer</h2>
       <form>
         <div className="form-group">
@@ -57,7 +77,7 @@ const InfluencerForm = () => {
             id="firstName"
             value={firstName}
             placeholder="First Name"
-            onChange={e => setFirstName(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -66,19 +86,22 @@ const InfluencerForm = () => {
             id="lastName"
             value={lastName}
             placeholder="Last Name"
-            onChange={e => setLastName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
         <div className="form-group">
           <label>Social Media Account</label>
-          <select value={platform} onChange={e => setPlatform(e.target.value as any)}>
+          <select
+            value={platform}
+            onChange={(e) => setPlatform(e.target.value as any)}
+          >
             <option>Instagram</option>
             <option>TikTok</option>
           </select>
           <input
             placeholder="Username"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <button type="button" onClick={addAccount} className="add-account-btn">
             Add Account
@@ -89,15 +112,21 @@ const InfluencerForm = () => {
           {accounts.map((acc, i) => (
             <li key={i}>
               {acc.platform}: {acc.username}
-              <button type="button" onClick={() => removeAccount(i)} className="remove-btn">
+              <button
+                type="button"
+                onClick={() => removeAccount(i)}
+                className="remove-btn"
+              >
                 Remove
               </button>
             </li>
           ))}
         </ul>
+        <div className="save-btn-container">
         <button type="button" onClick={handleSubmit} className="submit-btn">
           Save
         </button>
+        </div>
       </form>
     </div>
   );

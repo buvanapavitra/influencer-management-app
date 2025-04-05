@@ -1,34 +1,44 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Influencer } from "../types";
-import { getInfluencers } from "../services/api";
-import "./InfluencerList.css"; // Add a CSS file for styling
+import "./InfluencerList.css";
+import InfluencerForm from "./InfluencerForm";
 
-const InfluencerList = () => {
-  const [influencers, setInfluencers] = useState<Influencer[]>([]);
-  const [error, setError] = useState<string | null>(null);
+interface Props {
+  influencers: Influencer[];
+  onSearch: (name?: string) => void;
+  onSave: () => void;
+}
 
-  useEffect(() => {
-    const fetchInfluencers = async () => {
-      try {
-        const response = await getInfluencers();
-        setInfluencers(response.data as Influencer[]); // Explicitly cast response.data
-      } catch (err) {
-        setError("Failed to fetch influencers. Please try again later.");
-      }
-    };
-    fetchInfluencers();
-  }, []);
+const InfluencerList = ({ influencers, onSearch, onSave }: Props) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    onSearch(query);
+  };
 
   return (
     <div className="influencer-list">
+      <h1><center>Influencer Management Web Application</center></h1>
+      <InfluencerForm onSave={async () => await onSave()} />
+
       <h2>Influencer List</h2>
-      {error && <p className="error-message">{error}</p>}
+      <div className="search-container">
+  <input
+    type="text"
+    placeholder="Search by name"
+    value={searchQuery}
+    onChange={handleSearchChange}
+    className="search-input"
+  />
+</div>
       {influencers.length === 0 ? (
         <p>No influencers found.</p>
       ) : (
-        <ul className="influencers">
-          {influencers.map((influencer, index) => (
-            <li key={index} className="influencer-item">
+        <ul className="influencers"><br />
+          {influencers.map((influencer) => (
+            <li key={influencer.id} className="influencer-item">
               <div className="influencer-details">
                 <h3>
                   {influencer.firstName} {influencer.lastName}
@@ -41,7 +51,6 @@ const InfluencerList = () => {
                   ))}
                 </ul>
               </div>
-              <button className="delete-btn">Delete</button>
             </li>
           ))}
         </ul>
